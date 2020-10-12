@@ -1,0 +1,13 @@
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\bin\Debug\netcoreapp3.1\OOP_intro.exe
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\bin\Debug\netcoreapp3.1\OOP_intro.deps.json
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\bin\Debug\netcoreapp3.1\OOP_intro.runtimeconfig.json
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\bin\Debug\netcoreapp3.1\OOP_intro.runtimeconfig.dev.json
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\bin\Debug\netcoreapp3.1\OOP_intro.dll
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\bin\Debug\netcoreapp3.1\OOP_intro.pdb
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.csprojAssemblyReference.cache
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.AssemblyInfoInputs.cache
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.AssemblyInfo.cs
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.csproj.CoreCompileInputs.cache
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.dll
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.pdb
+C:\Users\pablo.jofre\Documents\GitHub\programmering_2_intro_OOP\OOP_intro\obj\Debug\netcoreapp3.1\OOP_intro.genruntimeconfig.cache
