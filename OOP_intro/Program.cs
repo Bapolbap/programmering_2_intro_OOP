@@ -20,29 +20,13 @@ namespace OOP_intro
         public static void Menu(Customer customer)
         {
             var menuChoice = 0;
-            while (menuChoice != 2) {
-                while (true) {
-                    Console.WriteLine("vad vill du göra, " +  customer.Name + "?\n" +
+            while (menuChoice != 2) 
+            {
+                menuChoice = 0;
+                Console.WriteLine("vad vill du göra, " +  customer.Name + "?\n" +
                                    "1: köp en produkt\n" +
                                    "2: checka ut");
-                    if (Int32.TryParse(Console.ReadLine(), out int result)) //låt användaren skriva något
-                    {
-                        menuChoice = result; //om användaren skrev in en int, låt ett variabel få det värdet
-                        if (menuChoice == 1 || menuChoice == 2) //kolla om menuChoice är ett av de giltiva värdena
-                        {
-                            break; //om menuChoice är giltigt, hoppa ut ur loopen
-                        }
-                        else
-                        {
-                            continue; //om menuChoice inte var giltigt, kör om loopen
-                        }
-                    }
-                    else
-                    {
-                        continue; //om användaren inte skrev in en int, kör om loopen
-                    }
-                }
-
+                menuChoice = GetUserInputBetweenInt(menuChoice, 1, 2);
                 switch (menuChoice)
                 {
                     case 1: AddProduct(customer); break;
@@ -53,37 +37,86 @@ namespace OOP_intro
 
         public static void AddProduct(Customer customer)
         {
-            String productName;
-            int productPrice;
-            Console.WriteLine("vad vill du köpa?");
-            productName = Console.ReadLine();
-            while (true)
+            int productTypeMenuChoice = 0;
+            //string productName;
+            Console.WriteLine("vad vill du köpa?\n" + 
+                                "1: mat\n" +
+                                "2: dricka\n" +
+                                "3: leksak\n" +
+                                "4: annat");
+
+            //låt användaren skriva in tal medans ProductTypeMenuChoice inte är mellan 1 - 4
+            productTypeMenuChoice = GetUserInputBetweenInt(productTypeMenuChoice, 1, 4);
+            switch (productTypeMenuChoice)
             {
-                Console.WriteLine("hur mycket kostar den?");
+                case 1:
+                    Food food = new Food();
+                    food.Name = GetUserProductChoice(food);
+                    customer.ProductList.Add(food);
+                    break;
+                case 2:
+                    Beverage beverage = new Beverage();
+                    beverage.Name = GetUserProductChoice(beverage);
+                    customer.ProductList.Add(beverage);
+                    break;
+                case 3:
+                    Toy toy = new Toy();
+                    toy.Name = GetUserProductChoice(toy);
+                    customer.ProductList.Add(toy);
+                    break;
+                case 4:
+                    Product product = new Product();
+                    product.Name = GetUserProductChoice(product);
+                    customer.ProductList.Add(product);
+                    break;
+            }
+
+        }
+
+        public static int GetUserInputBetweenInt(int variableToCheck, int minInput, int maxInput)
+        {
+            while (!(variableToCheck >= minInput && variableToCheck <= maxInput))
+            {
                 if (Int32.TryParse(Console.ReadLine(), out int result))
                 {
-                    productPrice = result;
+                    variableToCheck = result;
                     break;
-                } else
+                }
+                else
                 {
                     continue;
                 }
             }
-            Product product = new Product { Name = productName, Price = productPrice };
-            customer.ProductList.Add(product);
+
+            return variableToCheck;
         }
 
+        public static string GetUserProductChoice(Product product)
+        {
+            string name;
+            var index = 1;
+            var menuChoice = 0;
+            Console.WriteLine("\nvad vill du köpa?");
+            //skriv ut alla produkttyper i productList, med rätt format
+            foreach (string i in product.productList())
+            {
+                Console.WriteLine(index + ": " + i);
+                index ++;
+            }
+
+            name = product.productList()[GetUserInputBetweenInt(menuChoice, 1, index) - 1];
+            return name;
+        }
         public static void CustomerCheckout(Customer customer)
         {
             Console.WriteLine();
-            var totalPrice = 0;
             Console.WriteLine("din order är:");
-            foreach (Product product in customer.ProductList) //skriv ut namnet på alla produkter som användaren köpt, och dess pris
+
+            //skriv ut namnet på alla produkter som användaren köpt
+            foreach (Product product in customer.ProductList)
             {
-                Console.WriteLine(product.Name + "\t" + product.Price + "kr");
-                totalPrice += product.Price;
+                Console.WriteLine(product.Name);
             }
-            Console.WriteLine("totalpris:\t" + totalPrice + "kr");
         }
     }
 }

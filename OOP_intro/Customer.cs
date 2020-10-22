@@ -7,8 +7,8 @@ namespace OOP_intro
 {
     class Customer
     {
-        private static String name;
-        private static List<Product> productList = new List<Product>();
+        private String name;
+        private List<Product> productList = new List<Product>();
         public String Name
         {
             get { return name; }
