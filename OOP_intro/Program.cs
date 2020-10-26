@@ -26,7 +26,7 @@ namespace OOP_intro
                 Console.WriteLine("vad vill du göra, " +  customer.Name + "?\n" +
                                    "1: köp en produkt\n" +
                                    "2: checka ut");
-                menuChoice = GetUserInputBetweenInt(menuChoice, 1, 2);
+                menuChoice = GetUserInputBetweenInt(1, 2);
                 switch (menuChoice)
                 {
                     case 1: AddProduct(customer); break;
@@ -37,7 +37,6 @@ namespace OOP_intro
 
         public static void AddProduct(Customer customer)
         {
-            int productTypeMenuChoice = 0;
             //string productName;
             Console.WriteLine("vad vill du köpa?\n" + 
                                 "1: mat\n" +
@@ -46,7 +45,7 @@ namespace OOP_intro
                                 "4: annat");
 
             //låt användaren skriva in tal medans ProductTypeMenuChoice inte är mellan 1 - 4
-            productTypeMenuChoice = GetUserInputBetweenInt(productTypeMenuChoice, 1, 4);
+            int productTypeMenuChoice = GetUserInputBetweenInt(1, 4);
             switch (productTypeMenuChoice)
             {
                 case 1:
@@ -73,8 +72,10 @@ namespace OOP_intro
 
         }
 
-        public static int GetUserInputBetweenInt(int variableToCheck, int minInput, int maxInput)
+        public static int GetUserInputBetweenInt(int minInput, int maxInput)
         {
+            int variableToCheck = minInput - 1;
+
             while (!(variableToCheck >= minInput && variableToCheck <= maxInput))
             {
                 if (Int32.TryParse(Console.ReadLine(), out int result))
@@ -95,7 +96,6 @@ namespace OOP_intro
         {
             string name;
             var index = 1;
-            var menuChoice = 0;
             Console.WriteLine("\nvad vill du köpa?");
             //skriv ut alla produkttyper i productList, med rätt format
             foreach (string i in product.productList())
@@ -104,7 +104,7 @@ namespace OOP_intro
                 index ++;
             }
 
-            name = product.productList()[GetUserInputBetweenInt(menuChoice, 1, index) - 1];
+            name = product.productList()[GetUserInputBetweenInt(1, index) - 1];
             return name;
         }
         public static void CustomerCheckout(Customer customer)
